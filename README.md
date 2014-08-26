@@ -1,10 +1,6 @@
 # rabbitmq dockerfile
 
-Brings up a rabbitmq queue for use by other containers.
-
-## External Dependencies
-
-* https://registry.hub.docker.com/u/tutum/rabbitmq/dockerfile/
+Brings up a rabbitmq queue for use by other containers. inspired from [tutumcloud/tutum-docker-rabbitmq](https://github.com/tutumcloud/tutum-docker-rabbitmq)
 
 ## Things to know
 
@@ -20,9 +16,6 @@ Brings up a rabbitmq queue for use by other containers.
 - 5672:5672 (rabbitmq protocol)
 - 15672:15672 (rabbitmq admin dashboard)
 
-## todo: set default user/pass to rabbit/rabbit
-## maybe also edit index file?
-
 ## Steps
 
 __build__
@@ -33,9 +26,7 @@ docker build -t registry.banno-internal.com/rabbitmq .
 
 __run__
 
-```
-docker run -itd --dns 172.17.42.1 -e "RABBITMQ_USER=sensu" -e "RABBITMQ_PASSWORD=password" -p 5672:5672 -p 15672:15672 registry.banno-internal.com/rabbitmq
-```
+Run the provided `run-image.sh` script.
 
 __pull__
 
@@ -48,3 +39,14 @@ __push__
 ```
 docker push registry.banno-internal.com/rabbitmq
 ```
+
+## Todo
+
+- [ ] setup default user/pass of rabbit/rabbit for control panel
+- [ ] update readme with all ports opened / required (and env variables around them)
+- [ ] update readme with user/pass env variables and all others
+- [ ] need to setup a way to set the erlang cookie onto the container (totally configed)
+  - turn it into a bash script that is ran by supervisord which reads an env variable?
+- [ ] setup some sort of hostname setup (dns record wise?) for getting into the rabbitmq server(s).
+  - need to set a standard hostname for rabbitmq
+- [ ] supervisord exists out a whole bunch, that's probably bad.
