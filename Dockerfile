@@ -19,8 +19,9 @@ ADD scripts/setup-rabbitmq-user.sh /opt/rabbitmq/setup-rabbitmq-user.sh
 RUN chmod +x /opt/rabbitmq/*.sh
 
 ## Add .erlang.cookie
-RUN rm -rf /.erlang.cookie
+RUN rm -rf /.erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 ADD .erlang.cookie /.erlang.cookie
+RUN ln -s /.erlang.cookie /var/lib/rabbitmq/.erlang.cookie
 RUN chown rabbitmq /.erlang.cookie
 RUN chmod 400 /.erlang.cookie
 

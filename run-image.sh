@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "copying erlang cookie from container to host"
+./copy-erlang-cookie.sh
+
+echo "running container"
 docker run -itd --dns 172.17.42.1 \
     -e "RABBITMQ_USER=rabbit" \
     -e "RABBITMQ_PASS=rabbit" \
