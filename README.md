@@ -8,8 +8,18 @@ Brings up a rabbitmq queue for use by other containers. inspired from [tutumclou
 
 ## Environmental Variables
 
+__rabbitmq__
+
 - RABBITMQ_USER
 - RABBITMQ_PASSWORD
+- RABBITMQ_VHOST
+
+__erlang specific__
+
+- INET_DIST_LISTEN_MIN (defaults to 55950)
+- INET_DIST_LISTEN_MAX (defaults to 55954)
+
+> Note: changing these variables will mean that you have to also update the ports exposed by the container
 
 ## Ports exposed
 

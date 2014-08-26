@@ -19,9 +19,10 @@ ADD scripts/setup-rabbitmq-user.sh /opt/rabbitmq/setup-rabbitmq-user.sh
 RUN chmod +x /opt/rabbitmq/*.sh
 
 ## Add .erlang.cookie
-ADD .erlang.cookie /var/lib/rabbitmq/.erlang.cookie
-RUN chown rabbitmq /var/lib/rabbitmq/.erlang.cookie
-RUN chmod 400 /var/lib/rabbitmq/.erlang.cookie
+RUN rm -rf /.erlang.cookie
+ADD .erlang.cookie /.erlang.cookie
+RUN chown rabbitmq /.erlang.cookie
+RUN chmod 400 /.erlang.cookie
 
 # Add supervisord config for starting rabbitmq
 ADD supervisor-start-rabbitmq.conf /etc/supervisor/conf.d/supervisor-start-rabbitmq.conf
