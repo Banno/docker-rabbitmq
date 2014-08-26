@@ -43,7 +43,7 @@ docker build -t registry.banno-internal.com/rabbitmq .
 
 __run__
 
-Run the provided `local-scripts/run-image.sh` script.
+Run the provided `run-image.sh` script.
 
 __pull__
 
