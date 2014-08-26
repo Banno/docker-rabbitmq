@@ -6,7 +6,7 @@ Brings up a rabbitmq queue for use by other containers. inspired from [tutumclou
 
 - rabbitmq env variables for user/pass should be specified at run time.
   - by default they're `rabbit` and `rabbit`.
-- setting the hostname via docker is a really good idea.
+- setting the hostname via docker is a really good idea, otherwise it'll be the short container id.
 - the `.erlang.cookie` is specified at build time.
   - this helps to ensure that we can keep it the same across machines.
 
