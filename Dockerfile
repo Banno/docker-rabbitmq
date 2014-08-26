@@ -3,12 +3,13 @@ FROM tutum/rabbitmq
 # Install supervisord
 RUN apt-get update && apt-get install -y supervisor
 
-# supervisord
+# supervisor
 RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 
 # Rename rabbitmq start script
 # note: `/run.sh` is copied from the rabbitmq dockerfile.
+ADD custom-rabbitmq.conf /var/lib/rabbitmq/custom-rabbitmq.conf
 ADD configure-rabbitmq.sh /tmp/configure-rabbitmq.sh
 RUN chmod +x /tmp/configure-rabbitmq.sh
 RUN mv /run.sh /tmp/start-rabbitmq.sh

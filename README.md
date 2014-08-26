@@ -12,8 +12,6 @@ Brings up a rabbitmq queue for use by other containers.
 
 ## Environmental Variables
 
-- RABBITMQ_HOST
-- RABBITMQ_PORT
 - RABBITMQ_USER
 - RABBITMQ_PASSWORD
 
@@ -21,6 +19,9 @@ Brings up a rabbitmq queue for use by other containers.
 
 - 5672:5672 (rabbitmq protocol)
 - 15672:15672 (rabbitmq admin dashboard)
+
+## todo: set default user/pass to rabbit/rabbit
+## maybe also edit index file?
 
 ## Steps
 
