@@ -4,7 +4,11 @@ Brings up a rabbitmq queue for use by other containers. inspired from [tutumclou
 
 ## Things to know
 
-- rabbitmq admin password is a randomly generated 12 character password
+- rabbitmq env variables for user/pass should be specified at run time.
+  - by default they're `rabbit` and `rabbit`.
+- setting the hostname via docker is a really good idea.
+- the `.erlang.cookie` is specified at build time.
+  - this helps to ensure that we can keep it the same across machines.
 
 ## Environmental Variables
 
@@ -12,7 +16,8 @@ __rabbitmq__
 
 - RABBITMQ_USER
 - RABBITMQ_PASSWORD
-- RABBITMQ_VHOST
+- RABBITMQ_NODENAME (__required__)
+- RABBITMQ_VHOST (ex. "/sensu")
 
 __erlang specific__
 
@@ -23,8 +28,10 @@ __erlang specific__
 
 ## Ports exposed
 
+- 4369:4369 (erlang port mapper)
 - 5672:5672 (rabbitmq protocol)
 - 15672:15672 (rabbitmq admin dashboard)
+- 55950:55950 to 55954:55954 (erlang inet listen ports)
 
 ## Steps
 
@@ -36,7 +43,7 @@ docker build -t registry.banno-internal.com/rabbitmq .
 
 __run__
 
-Run the provided `run-image.sh` script.
+Run the provided `local-scripts/run-image.sh` script.
 
 __pull__
 
@@ -49,14 +56,3 @@ __push__
 ```
 docker push registry.banno-internal.com/rabbitmq
 ```
-
-## Todo
-
-- [ ] setup default user/pass of rabbit/rabbit for control panel
-- [ ] update readme with all ports opened / required (and env variables around them)
-- [ ] update readme with user/pass env variables and all others
-- [ ] need to setup a way to set the erlang cookie onto the container (totally configed)
-  - turn it into a bash script that is ran by supervisord which reads an env variable?
-- [ ] setup some sort of hostname setup (dns record wise?) for getting into the rabbitmq server(s).
-  - need to set a standard hostname for rabbitmq
-- [ ] supervisord exists out a whole bunch, that's probably bad.
