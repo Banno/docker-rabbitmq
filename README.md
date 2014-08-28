@@ -15,7 +15,7 @@ Brings up a rabbitmq queue for use by other containers. inspired from [tutumclou
 __rabbitmq__
 
 - RABBITMQ_USER
-- RABBITMQ_PASSWORD
+- RABBITMQ_PASS
 - RABBITMQ_NODENAME (__required__)
 - RABBITMQ_VHOST (ex. "/sensu")
 

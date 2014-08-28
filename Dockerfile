@@ -14,7 +14,7 @@ RUN rabbitmq-plugins enable rabbitmq_management
 # Add scripts
 RUN mkdir -p /opt/rabbitmq
 ADD scripts/start-rabbitmq-server.sh /opt/rabbitmq/start-rabbitmq-server.sh
-ADD scripts/set-rabbitmq-password.sh /opt/rabbitmq/set-rabbitmq-password.sh
+ADD scripts/write-rabbitmq-config.sh /opt/rabbitmq/write-rabbitmq-config.sh
 ADD scripts/setup-rabbitmq-user.sh /opt/rabbitmq/setup-rabbitmq-user.sh
 RUN chmod +x /opt/rabbitmq/*.sh
 
