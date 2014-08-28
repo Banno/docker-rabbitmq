@@ -10,11 +10,7 @@ fi
 INET_DIST_LISTEN_MIN=${INET_DIST_LISTEN_MIN:-55950}
 INET_DIST_LISTEN_MAX=${INET_DIST_LISTEN_MAX:-55954}
 
-# todo: rename to write-rabbitmq-config
-# todo: should we specify: "0.0.0.0"  as part of the tcp_listeners config?
-
 # For reference: https://www.rabbitmq.com/configure.html
-
 cat > /etc/rabbitmq/rabbitmq.config <<EOF
 [
 	{rabbit, [{default_user, <<"$RABBITMQ_USER">>},
