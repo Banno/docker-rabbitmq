@@ -21,6 +21,7 @@ __rabbitmq__
 
 __erlang specific__
 
+- ERLANG_COOKIE (example: `HBFRWEQIAIUQVPVBDETC`)
 - INET_DIST_LISTEN_MIN (defaults to 55950)
 - INET_DIST_LISTEN_MAX (defaults to 55954)
 
