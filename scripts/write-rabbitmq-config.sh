@@ -7,6 +7,8 @@ if [ -f /.rabbitmq_password_set ]; then
 	exit 0
 fi
 
+RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
+
 INET_DIST_LISTEN_MIN=${INET_DIST_LISTEN_MIN:-55950}
 INET_DIST_LISTEN_MAX=${INET_DIST_LISTEN_MAX:-55954}
 
@@ -16,7 +18,7 @@ cat > /etc/rabbitmq/rabbitmq.config <<EOF
 	{rabbit, [{default_user, <<"$RABBITMQ_USER">>},
                   {default_pass, <<"$RABBITMQ_PASS">>},
                   {default_permissions, [<<".*">>, <<".*">>, <<".*">>]},
-                  {tcp_listeners, [5672]},
+                  {tcp_listeners, [${RABBITMQ_PORT}]},
                   {reverse_dns_lookups, true},
                   {cluster_partition_handling, pause_minority},
                   {log_levels, [
