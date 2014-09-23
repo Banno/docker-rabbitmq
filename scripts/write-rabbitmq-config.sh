@@ -19,6 +19,11 @@ cat > /etc/rabbitmq/rabbitmq.config <<EOF
                   {tcp_listeners, [5672]},
                   {reverse_dns_lookups, true},
                   {cluster_partition_handling, pause_minority},
+                  {log_levels, [
+                    {connection, info},
+                    {mirroring, info},
+                    {federation, info}
+                  ]},
                   {loopback_users, []}
         ]},
         {kernel, [{inet_dist_listen_min, $INET_DIST_LISTEN_MIN},
