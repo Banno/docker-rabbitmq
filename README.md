@@ -16,7 +16,7 @@ __rabbitmq__
 
 - RABBITMQ_USER
 - RABBITMQ_PASS
-- RABBITMQ_NODENAME (__required__)
+- RABBITMQ_NODENAME (defaults to eth0 ip)
 - RABBITMQ_VHOST (ex. "/sensu")
 
 __erlang specific__
