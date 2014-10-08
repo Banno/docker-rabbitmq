@@ -52,3 +52,7 @@ Internally we've just been building the container with "rabbitmq" appended to th
 1. Create a Pull Request
 
 If we don't get to your PR in a timely fashion feel free to ping us.
+
+## Authors
+
+- Adam Shannon (adam.shannon@banno.com)
