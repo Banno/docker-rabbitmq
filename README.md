@@ -2,6 +2,10 @@
 
 Brings up a rabbitmq queue for use by other containers. inspired from [tutumcloud/tutum-docker-rabbitmq](https://github.com/tutumcloud/tutum-docker-rabbitmq)
 
+## Usage
+
+We've hosted this image over on the [docker hub](https://registry.hub.docker.com/u/banno/docker-rabbitmq).
+
 __Differencesfrom tutumcloud/tutum-docker-rabbitmq__
 
 - Customizable erlang cookie
