@@ -2,6 +2,16 @@
 
 Brings up a rabbitmq queue for use by other containers. inspired from [tutumcloud/tutum-docker-rabbitmq](https://github.com/tutumcloud/tutum-docker-rabbitmq)
 
+## Usage
+
+We've hosted this image over on the [docker hub](https://registry.hub.docker.com/u/banno/docker-rabbitmq).
+
+__Differencesfrom tutumcloud/tutum-docker-rabbitmq__
+
+- Customizable erlang cookie
+- Customizable username/password for rabbitmq
+- Uses DNS for hostname lookups
+
 ## Things to know
 
 - rabbitmq env variables for user/pass should be specified at run time.
@@ -35,26 +45,19 @@ __erlang specific__
 - 15672:15672 (rabbitmq admin dashboard)
 - 55950:55950 to 55954:55954 (erlang inet listen ports)
 
-## Steps
+## Building
 
-__build__
+Internally we've just been building the container with "rabbitmq" appended to the registry uri
 
-```
-docker build -t registry.banno-internal.com/rabbitmq .
-```
+## Contributing
 
-__run__
+1. Fork this project
+1. Create your feature branch
+1. Commit your changes
+1. Create a Pull Request
 
-Run via [big](https://github.com/Banno/big)
+If we don't get to your PR in a timely fashion feel free to ping us.
 
-__pull__
+## Authors
 
-```
-docker pull registry.banno-internal.com/rabbitmq
-```
-
-__push__
-
-```
-docker push registry.banno-internal.com/rabbitmq
-```
+- Adam Shannon (adam.shannon@banno.com)
