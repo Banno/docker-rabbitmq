@@ -20,6 +20,7 @@ cat > /etc/rabbitmq/rabbitmq.config <<EOF
                   {default_permissions, [<<".*">>, <<".*">>, <<".*">>]},
                   {tcp_listeners, [${RABBITMQ_PORT}]},
                   {reverse_dns_lookups, true},
+                  {cluster_partition_handling, pause_minority},
                   {log_levels, [
                     {connection, info},
                     {mirroring, info},
