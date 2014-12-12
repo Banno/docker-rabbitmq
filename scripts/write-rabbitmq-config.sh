@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Adapted from tutumcloud/tutum-docker-rabbitmq
-
-if [ -f /.rabbitmq_password_set ]; then
-	echo "RabbitMQ password already set!"
-	exit 0
-fi
-
 RABBITMQ_PORT=${RABBITMQ_PORT:-5672}
 
 INET_DIST_LISTEN_MIN=${INET_DIST_LISTEN_MIN:-55950}
@@ -33,7 +26,5 @@ cat > /etc/rabbitmq/rabbitmq.config <<EOF
         ]}
 ].
 EOF
-
-touch /.rabbitmq_password_set
 
 exit 0
