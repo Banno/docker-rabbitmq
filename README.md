@@ -28,6 +28,7 @@ __rabbitmq__
 - RABBITMQ_PASS
 - RABBITMQ_NODENAME (defaults to eth0 ip)
 - RABBITMQ_VHOST (ex. "/sensu")
+- RABBITMQ_PORT (defaults to 5672)
 
 __erlang specific__
 
